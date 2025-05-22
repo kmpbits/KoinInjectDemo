@@ -8,7 +8,7 @@ import org.koin.core.annotation.Single
 // Example of a module without @ComponentScan,
 // so you need to declare it manually.
 // This approach is common when integrating external libraries like Ktor or Room.
-class GreetingModule {
+class ServiceModule {
 
     @Single
     fun provideGreetingService() = GreetingService()

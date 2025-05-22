@@ -57,6 +57,8 @@ kotlin {
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
             implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.composeVM)
             // Use 'api' instead of 'implementation' so this dependency is exposed transitively
             // to both Android and iOS modules that depend on this library.
             api(libs.koin.annotations)
