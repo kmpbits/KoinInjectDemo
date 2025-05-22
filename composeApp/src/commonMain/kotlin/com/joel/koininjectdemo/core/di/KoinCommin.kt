@@ -1,5 +1,6 @@
 package com.joel.koininjectdemo.core.di
 
+import com.joel.koininjectdemo.core.di.modules.GreetingModule
 import com.joel.koininjectdemo.core.di.modules.PlatformModule
 import org.koin.core.KoinApplication
 import org.koin.core.annotation.Module
@@ -18,7 +19,8 @@ fun initApplication(appDeclaration: KoinAppDeclaration = {}): KoinApplication {
 
 @Module(
     includes = [
-        PlatformModule::class
+        PlatformModule::class,
+        GreetingModule::class,
     ]
 )
 class AppModule
