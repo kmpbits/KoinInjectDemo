@@ -55,7 +55,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.joel.composedemo"
+    namespace = "com.joel.koininjectdemo"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -86,5 +86,5 @@ dependencies {
 }
 
 compose.resources {
-    packageOfResClass = "composedemo.composeapp.generated.resources"
+    packageOfResClass = "koininjectdemo.composeapp.generated.resources"
 }

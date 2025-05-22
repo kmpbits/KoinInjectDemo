@@ -1,4 +1,4 @@
-rootProject.name = "ComposeDemo"
+rootProject.name = "KoinInjectDemo"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

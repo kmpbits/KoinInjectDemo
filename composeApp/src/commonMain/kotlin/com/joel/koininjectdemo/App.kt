@@ -1,4 +1,4 @@
-package com.joel.composedemo
+package com.joel.koininjectdemo
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
@@ -16,8 +16,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import composedemo.composeapp.generated.resources.Res
-import composedemo.composeapp.generated.resources.compose_multiplatform
+import koininjectdemo.composeapp.generated.resources.Res
+import koininjectdemo.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 

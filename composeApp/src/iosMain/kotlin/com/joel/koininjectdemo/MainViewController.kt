@@ -1,4 +1,4 @@
-package com.joel.composedemo
+package com.joel.koininjectdemo
 
 import androidx.compose.ui.window.ComposeUIViewController
 
