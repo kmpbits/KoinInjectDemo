@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.cocoapods)
+    alias(libs.plugins.ksp)
 }
 
 kotlin {
@@ -47,6 +48,10 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
             implementation(libs.androidx.lifecycle.viewmodel)
             implementation(libs.androidx.lifecycle.runtimeCompose)
+            implementation(libs.koin.core)
+            // Use 'api' instead of 'implementation' so this dependency is exposed transitively
+            // to both Android and iOS modules that depend on this library.
+            api(libs.koin.annotations)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -83,6 +88,12 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+
+    add("kspCommonMainMetadata", libs.koin.compiler)
+    add("kspAndroid", libs.koin.compiler)
+    add("kspIosSimulatorArm64", libs.koin.compiler)
+    add("kspIosX64", libs.koin.compiler)
+    add("kspIosArm64", libs.koin.compiler)
 }
 
 compose.resources {
