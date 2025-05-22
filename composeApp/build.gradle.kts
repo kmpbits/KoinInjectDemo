@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompilationTask
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
@@ -15,6 +16,12 @@ kotlin {
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_11)
         }
+    }
+
+    // Includes the generated KSP code (from the commonMain source set) into the compilation.
+    // This is required for Koin's annotation processor to work properly with shared code.
+    sourceSets.commonMain {
+        kotlin.srcDir("build/generated/ksp/metadata")
     }
 
     iosX64()
@@ -38,6 +45,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
+            implementation(libs.koin.android)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
@@ -94,6 +102,20 @@ dependencies {
     add("kspIosSimulatorArm64", libs.koin.compiler)
     add("kspIosX64", libs.koin.compiler)
     add("kspIosArm64", libs.koin.compiler)
+}
+
+// Enables compile-time validation for Koin configuration.
+// Without this, issues are only caught at runtime.
+ksp {
+    arg("KOIN_CONFIG_CHECK","true")
+}
+
+// Ensures the KSP metadata for commonMain is generated before running native compilations.
+// Prevents missing dependency issues by forcing proper task ordering.
+project.tasks.withType(KotlinCompilationTask::class.java).configureEach {
+    if(name != "kspCommonMainKotlinMetadata") {
+        dependsOn("kspCommonMainKotlinMetadata")
+    }
 }
 
 compose.resources {
