@@ -70,7 +70,7 @@ KoinInjectDemo/
 
 ## 📚 Learn More
 
-- 📖 [Using Koin Annotations in KMP]([https://your-article-link.com](https://medium.com/@kmpbits/injecting-fun-kmp-koin-annotations-made-easy-1212c75774bb))
+- 📖 [Using Ktorfit in KMP](https://medium.com/@kmpbits/injecting-fun-kmp-koin-annotations-made-easy-1212c75774bb)
 - 🧰 [Koin Official Documentation](https://insert-koin.io/docs)
 - 🧪 [Koin Testing Guide](https://insert-koin.io/docs/reference/koin-test/)
 - 💡 [KMP Bits Repository](https://github.com/kmpbits)
